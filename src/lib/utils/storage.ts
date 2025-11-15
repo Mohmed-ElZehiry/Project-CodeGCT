@@ -6,7 +6,13 @@ export const storage = {
     try {
       if (typeof window !== "undefined") {
         const raw = localStorage.getItem(key);
-        return raw ? JSON.parse(raw) : null;
+        if (raw === null) return null;
+
+        try {
+          return JSON.parse(raw);
+        } catch (parseError) {
+          return raw;
+        }
       }
       return null;
     } catch (error) {
@@ -18,7 +24,11 @@ export const storage = {
   set: (key: string, value: unknown): void => {
     try {
       if (typeof window !== "undefined") {
-        localStorage.setItem(key, JSON.stringify(value));
+        if (typeof value === "string") {
+          localStorage.setItem(key, value);
+        } else {
+          localStorage.setItem(key, JSON.stringify(value));
+        }
       }
     } catch (error) {
       console.error("❌ Storage set error:", error);

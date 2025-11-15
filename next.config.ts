@@ -17,7 +17,7 @@ const securityHeaders = [
       font-src 'self';
       connect-src 'self'
         ${process.env.NEXT_PUBLIC_SUPABASE_URL || ""}
-        ${process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/^http/, "wss") || ""};
+        ${process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/^https?/, "wss") || ""};
       object-src 'none';
       base-uri 'self';
       frame-ancestors 'none';

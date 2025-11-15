@@ -15,8 +15,30 @@ export async function withRoleGuard(
 
   // ✅ لازم await هنا
   const headersList = await headers();
-  const currentPath =
+  let currentPath =
     headersList.get("x-invoke-path") || headersList.get("referer") || `/${locale}`;
+
+  if (currentPath.startsWith("http://") || currentPath.startsWith("https://")) {
+    try {
+      const parsed = new URL(currentPath);
+      currentPath = `${parsed.pathname}${parsed.search}`;
+    } catch (error) {
+      logger.logWarn("Invalid referer URL encountered", {
+        locale,
+        currentPath,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      currentPath = `/${locale}`;
+    }
+  }
+
+  if (!currentPath.startsWith("/")) {
+    currentPath = `/${currentPath.replace(/^\/+/, "")}`;
+  }
+
+  if (!currentPath.startsWith(`/${locale}/`) && currentPath !== `/${locale}`) {
+    currentPath = `/${locale}`;
+  }
 
   const encodedRedirectTo = encodeURIComponent(currentPath);
 

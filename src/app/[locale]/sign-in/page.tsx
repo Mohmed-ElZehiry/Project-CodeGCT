@@ -29,6 +29,15 @@ export default function SignIn() {
         const searchParams = new URLSearchParams(window.location.search);
         let redirectTo = searchParams.get("redirectTo");
 
+        if (redirectTo) {
+          try {
+            redirectTo = decodeURIComponent(redirectTo);
+          } catch (error) {
+            logger.logWarn("Failed to decode redirectTo parameter", { error, redirectTo });
+            redirectTo = "";
+          }
+        }
+
         if (
           !redirectTo ||
           redirectTo.startsWith("/_next") ||
