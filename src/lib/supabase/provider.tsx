@@ -5,10 +5,9 @@ export const runtime = "client";
 
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
 import { SupabaseClient, User } from "@supabase/supabase-js";
-import { createBrowserClient } from "@supabase/ssr";
 import type { Database } from "./database.types";
 import logger from "../utils/logger";
-import { storage } from "../utils/storage";
+import { createClient as createBrowserSupabaseClient } from "./client";
 
 type Role = Database["public"]["Enums"]["user_role"];
 
@@ -36,45 +35,7 @@ export function SupabaseProvider({
   initialUser = null,
   initialRole = "user",
 }: SupabaseProviderProps) {
-  const supabase = useMemo(
-    () =>
-      createBrowserClient<Database>(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        {
-          auth: {
-            persistSession: true,
-            autoRefreshToken: true,
-            detectSessionInUrl: true,
-            storage: {
-              getItem: (key: string): string | null => {
-                try {
-                  return (storage.get(key) as string | null) ?? null;
-                } catch (error) {
-                  logger.logError(`Error getting auth data for key "${key}"`, { error });
-                  return null;
-                }
-              },
-              setItem: (key: string, value: string): void => {
-                try {
-                  storage.set(key, value);
-                } catch (error) {
-                  logger.logError(`Error setting auth data for key "${key}"`, { error });
-                }
-              },
-              removeItem: (key: string): void => {
-                try {
-                  storage.remove(key);
-                } catch (error) {
-                  logger.logError(`Error removing auth data for key "${key}"`, { error });
-                }
-              },
-            },
-          },
-        },
-      ),
-    [],
-  );
+  const supabase = useMemo(() => createBrowserSupabaseClient(), []);
   const [user, setUser] = useState<User | null>(() => initialUser ?? null);
   const [role, setRole] = useState<Role>(() => initialRole ?? "user");
   const [loading, setLoading] = useState(true);

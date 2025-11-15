@@ -29,6 +29,9 @@ export async function middleware(request: NextRequest) {
 
   const path = request.nextUrl.pathname;
   const locale = path.split("/")[1] || "en";
+  const userAgent = request.headers.get("user-agent") ?? "unknown";
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const ip = forwardedFor?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
 
   // مسارات عامة
   const publicPaths = [
@@ -57,7 +60,7 @@ export async function middleware(request: NextRequest) {
 
   // ✅ لو مفيش session → redirect sign-in
   if (!session && protectedRoutes.some((route) => path.startsWith(route))) {
-    logger.logWarn("Unauthorized access - no session", { path, locale });
+    logger.logWarn("Unauthorized access - no session", { path, locale, ip, userAgent });
     const signInUrl = new URL(`/${locale}/sign-in`, request.url);
     signInUrl.searchParams.set("redirectTo", path);
     return NextResponse.redirect(signInUrl);
@@ -68,7 +71,7 @@ export async function middleware(request: NextRequest) {
     error: userError,
   } = await supabase.auth.getUser();
   if (!user || userError) {
-    logger.logError("Failed to fetch user", { error: userError?.message, path });
+    logger.logError("Failed to fetch user", { error: userError?.message, path, ip, userAgent });
     const signInUrl = new URL(`/${locale}/sign-in`, request.url);
     signInUrl.searchParams.set("redirectTo", path);
     return NextResponse.redirect(signInUrl);
@@ -100,12 +103,12 @@ export async function middleware(request: NextRequest) {
 
   // ✅ حماية المسارات حسب الدور
   if (path.startsWith(`/${locale}/admin`) && userRole !== "admin") {
-    logger.logWarn("Unauthorized admin access attempt", { userId: user.id, role: userRole });
+    logger.logWarn("Unauthorized admin access attempt", { userId: user.id, role: userRole, ip, userAgent });
     url.pathname = `/${locale}/unauthorized`;
     return NextResponse.redirect(url);
   }
   if (path.startsWith(`/${locale}/support`) && !["admin", "support"].includes(userRole)) {
-    logger.logWarn("Unauthorized support access attempt", { userId: user.id, role: userRole });
+    logger.logWarn("Unauthorized support access attempt", { userId: user.id, role: userRole, ip, userAgent });
     url.pathname = `/${locale}/unauthorized`;
     return NextResponse.redirect(url);
   }

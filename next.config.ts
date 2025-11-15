@@ -64,6 +64,15 @@ const config: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      {
+        source: "/:locale/report",
+        destination: "/:locale/user/dashboard/reports",
+        permanent: false,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {

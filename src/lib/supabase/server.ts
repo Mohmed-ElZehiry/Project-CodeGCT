@@ -17,12 +17,12 @@ export async function createSupabaseServerClient(): Promise<SupabaseClient<Datab
   const cookieStore = await cookies(); // ✅ لازم await هنا
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!url) throw new Error("❌ Missing NEXT_PUBLIC_SUPABASE_URL");
-  if (!serviceKey) throw new Error("❌ Missing SUPABASE_SERVICE_ROLE_KEY");
+  if (!anonKey) throw new Error("❌ Missing NEXT_PUBLIC_SUPABASE_ANON_KEY");
 
-  return createServerClient<Database>(url, serviceKey, {
+  return createServerClient<Database>(url, anonKey, {
     cookies: {
       get(name: string) {
         return cookieStore.get(name)?.value;

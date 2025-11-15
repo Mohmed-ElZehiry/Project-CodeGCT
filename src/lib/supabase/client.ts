@@ -1,6 +1,7 @@
 "use client";
 
 import { createBrowserClient } from "@supabase/ssr";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { Database } from "./database.types";
 import logger from "../utils/logger"; // ✅ استخدم اللوجر الموحد
 import { storage } from "../utils/storage"; // ✅ اعمل abstraction للـ storage
@@ -13,9 +14,13 @@ if (!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
   throw new Error("❌ Missing env.NEXT_PUBLIC_SUPABASE_ANON_KEY");
 }
 
-// ✅ دالة لإنشاء Supabase Client
+let supabaseClient: SupabaseClient<Database> | null = null;
+
+// ✅ دالة لإنشاء (أو إعادة استخدام) Supabase Client
 export const createClient = () => {
-  return createBrowserClient<Database>(
+  if (supabaseClient) return supabaseClient;
+
+  supabaseClient = createBrowserClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
@@ -51,6 +56,8 @@ export const createClient = () => {
       },
     },
   );
+
+  return supabaseClient;
 };
 
 // ✅ أنشئ نسخة واحدة من Supabase Client

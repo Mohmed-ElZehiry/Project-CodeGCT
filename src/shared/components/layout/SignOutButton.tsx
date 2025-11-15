@@ -49,8 +49,13 @@ export default function SignOutButton({
 
         // ✅ تنظيف التخزين المحلي
         if (typeof window !== "undefined") {
-          localStorage.clear();
-          sessionStorage.clear();
+          const supabaseKeys = Object.keys(localStorage).filter(
+            (key) =>
+              key.startsWith("sb-") ||
+              key.startsWith("supabase-") ||
+              key.includes("supabase.auth"),
+          );
+          supabaseKeys.forEach((key) => localStorage.removeItem(key));
         }
 
         // ✅ التوجيه (اختياري)

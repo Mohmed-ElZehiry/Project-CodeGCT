@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "@/shared/components/ui/button";
 import logger from "@/lib/utils/logger";
+import { toast } from "react-hot-toast";
 
 export default function SignIn() {
   const [supabase, setSupabase] = useState<ReturnType<typeof createClient>>();
@@ -72,11 +72,15 @@ export default function SignIn() {
 
         if (signInError) {
           logger.logError(`Error signing in with ${provider}`, { error: signInError });
-          alert(`Error signing in with ${provider}. Please try again.`);
+          toast.error(
+            provider === "google"
+              ? "تعذر تسجيل الدخول بحساب جوجل. حاول مرة أخرى."
+              : "تعذر تسجيل الدخول بحساب جيت هب. حاول مرة أخرى.",
+          );
         }
       } catch (error) {
         logger.logError("Unexpected Sign-In Error", { error });
-        alert("حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.");
+        toast.error("حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.");
       } finally {
         setIsLoading(null);
       }
