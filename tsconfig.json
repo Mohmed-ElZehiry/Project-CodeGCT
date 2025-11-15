@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+
+      // ✅ Aliases منظمة
+      "@/app/*": ["src/app/*"],
+
+      "@/components/*": ["src/shared/components/*"],
+      "@/components/dashboard/*": ["src/shared/components/dashboard/*"],
+      "@/components/landing/*": ["src/shared/components/landing/*"],
+      "@/components/layout/*": ["src/shared/components/layout/*"],
+      "@/components/ui/*": ["src/shared/components/ui/*"],
+
+      "@/lib/*": ["src/lib/*"],
+      "@/lib/security/*": ["src/lib/security/*"],
+      "@/lib/services/*": ["src/lib/services/*"],
+      "@/lib/utils/*": ["src/lib/utils/*"],
+
+      "@/i18n/*": ["src/i18n/*"],
+      "@/providers/*": ["src/lib/providers/*"],
+      "@/types/*": ["src/types/*"],
+
+      // ملف i18n.ts في الجذر
+      "@/i18n": ["i18n.ts"],
+
+      // ✅ جديد: config
+      "@/config/*": ["src/config/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": false,
+    "incremental": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "src/types/**/*.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

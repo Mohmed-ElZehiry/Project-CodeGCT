@@ -1,0 +1,451 @@
+{
+  "auth": {
+    "signIn": {
+      "title": "Sign in to your account",
+      "subtitle": "Choose a provider to continue",
+      "description": "Choose a provider below to continue securely.",
+      "google": "Google",
+      "github": "GitHub",
+      "gitlab": "GitLab",
+      "azure": "Azure",
+      "discord": "Discord",
+      "signInWith": "Sign in with {provider}",
+      "loading": "Signing in...",
+      "termsNotice": "By signing in, you agree to our",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "button": "Sign in",
+      "withGoogle": "Sign in with Google",
+      "withGithub": "Sign in with GitHub",
+      "withGitlab": "Sign in with GitLab",
+      "withAzure": "Sign in with Azure",
+      "withDiscord": "Sign in with Discord"
+    },
+    "signOut": {
+      "button": "Sign out",
+      "success": "You have been signed out successfully.",
+      "error": "An error occurred while signing out. Please try again."
+    },
+    "error": {
+      "title": "Authentication Error",
+      "default": "An unexpected error occurred. Please try again.",
+      "server_error": "A server error occurred while processing your request.",
+      "access_denied": "Access was denied. Please try again with a different account.",
+      "configuration": "There is a configuration issue with the authentication provider.",
+      "verification": "Verification failed or the link has expired.",
+      "provider": "Could not sign in with this provider.",
+      "failed": "Sign-in failed. Please try again.",
+      "unexpected": "An unexpected error occurred.",
+      "back": "Go Back",
+      "retry": "Try Again",
+      "rate_limit": "Too many sign-in attempts. Please try again later.",
+      "invalid_state": "Invalid link. Please try again.",
+      "session_expired": "Your session has expired. Please sign in again.",
+      "network": "Failed to connect to the server. Please check your internet connection."
+    },
+
+    "callback": {
+      "loading": "Completing sign in...",
+      "redirecting": "You will be redirected shortly...",
+      "success": "Successfully signed in!",
+      "timeout": "The process is taking longer than expected. Redirecting...",
+      "error": {
+        "title": "Sign In Failed",
+        "description": "An error occurred while trying to sign in. Please try again.",
+        "invalid_code": "Invalid or expired authentication code.",
+        "missing_code": "Authentication code is required.",
+        "invalid_state": "Invalid session data. Please try again.",
+        "generic": "Sorry, something went wrong. Please try again later."
+      }
+    },
+    "session": {
+      "expired": "Your session has expired. Please sign in again.",
+      "invalid": "Invalid session. Please sign in again.",
+      "loading": "Loading session data..."
+    },
+    "validation": {
+      "email_required": "Email is required",
+      "email_invalid": "Invalid email address",
+      "password_required": "Password is required",
+      "password_too_short": "Password must be at least 8 characters"
+    },
+    "termsNotice": "By signing in, you agree to our",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "unauthorized": {
+    "title": "Unauthorized",
+    "description": "You must sign in to access this page.",
+    "signIn": "Sign in",
+    "backHome": "Back to Home",
+    "goBack": "Go Back"
+  },
+  "navbar": {
+    "home": "Home",
+    "reports": "Reports",
+    "support": "Support",
+    "user": "User",
+    "loading": "Loading...",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "userDashboard": "User Dashboard",
+    "supportDashboard": "Support Dashboard",
+    "adminDashboard": "Admin Dashboard"
+  },
+  "adminDashboard": {
+    "title": "Admin Control Center",
+    "description": "Monitor platform activity, manage users, and keep system configuration healthy.",
+    "stats": {
+      "totalUsers": "Total users",
+      "activeUsers": "Active users",
+      "supportAgents": "Support agents",
+      "pendingInvites": "Pending invitations",
+      "audit24h": "Audit logs (24h)",
+      "totalSettings": "System settings"
+    },
+    "recentUsers": {
+      "title": "Recently added users",
+      "viewAll": "View all",
+      "loading": "Loading recent users...",
+      "empty": "No users were created recently."
+    },
+    "quickLinks": {
+      "title": "Quick actions",
+      "users": {
+        "title": "Manage users",
+        "description": "Review roles, suspend accounts, and promote team members."
+      },
+      "settings": {
+        "title": "System settings",
+        "description": "Adjust platform behaviour, maintenance mode, and integration keys."
+      },
+      "logs": {
+        "title": "Audit logs",
+        "description": "Inspect sensitive events and keep track of administrator activity."
+      }
+    }
+  },
+  "adminAnalytics": {
+    "title": "Analytics dashboard",
+    "subtitle": "Review platform performance trends and usage insights.",
+    "users": "Users",
+    "sinceLastMonth": "since last month",
+    "reports": "Reports",
+    "sinceLastWeek": "since last week",
+    "executionTime": "Average execution time",
+    "sinceLastRun": "since last run",
+    "charts": "Charts",
+    "chartsPlaceholder": "Charts will appear here soon"
+  },
+  "home": {
+    "welcome": "Welcome to Delta",
+    "description": "This is the localized landing page. Choose your language and theme from the top."
+  },
+  "support": {
+    "dashboard": "Support Dashboard",
+    "tickets": "Tickets",
+    "reports": "Reports",
+    "stats": "Statistics"
+  },
+  "user": {
+    "dashboard": "User Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "activity": "Recent Activity"
+  },
+  "errors": {
+    "unauthorized": "You are not authorized to view this page.",
+    "notFound": "The page you are looking for could not be found.",
+    "serverError": "An unexpected error occurred. Please try again later."
+  },
+  "sidebar": {
+    "user": {
+      "dashboard": "Dashboard",
+      "settings": "Settings",
+      "profile": "Profile"
+    },
+    "support": {
+      "dashboard": "Dashboard",
+      "tickets": "Tickets",
+      "reports": "Reports",
+      "stats": "Statistics"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Learn more about Delta and our journey.",
+    "missionTitle": "Our Mission",
+    "missionText": "We aim to build scalable, maintainable systems that empower developers at Delta.",
+    "visionTitle": "Our Vision",
+    "visionText": "To be a trusted platform for clean architecture and collaboration."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Your privacy is important to us. This page explains how we handle your data.",
+    "dataTitle": "Data Collection",
+    "dataText": "We only collect the information necessary to provide our services.",
+    "securityTitle": "Data Security",
+    "securityText": "We use modern security practices to protect your information."
+  },
+  "supportPage": {
+    "title": "Technical Support",
+    "intro": "Need help? Our support team is here to assist you.",
+    "faqTitle": "Frequently Asked Questions",
+    "faqText": "Check our FAQ section for quick answers.",
+    "contactTitle": "Contact Support",
+    "contactText": "If you need further assistance, please reach out to our support team."
+  },
+  "report": {
+    "title": "Backup Report",
+    "loading": "Loading report...",
+    "loadError": "Failed to load the report.",
+    "export": {
+      "json": "Export JSON",
+      "csv": "Export CSV",
+      "html": "Export HTML",
+      "pdf": "Print / PDF"
+    },
+    "summary": {
+      "totalFiles": "Uploaded Files",
+      "totalSize": "Upload Size",
+      "execTime": "Execution Time",
+      "totalFolders": "Project Folders"
+    },
+    "chart": {
+      "fileTypes": "File Types Distribution",
+      "largestFiles": "Largest Files",
+      "sizeLabel": "Size (KB)"
+    },
+    "projectSummary": {
+      "title": "Project Summary",
+      "folders": "Total Folders",
+      "files": "Total Files",
+      "size": "Total Size"
+    },
+    "tree": {
+      "title": "Project Structure"
+    },
+    "files": {
+      "title": "Uploaded Files"
+    }
+  },
+  "tree": {
+    "files": "files",
+    "empty": "No data to display"
+  },
+  "homeClient": {
+    "title": "Upload your files or folder",
+    "description": "Choose the files or folder to back up and a report will be generated instantly with a copy uploaded to GitHub.",
+    "fileLabel": "Files or Folder",
+    "processing": "Processing...",
+    "createBackup": "Create Backup",
+    "errors": {
+      "backupFailed": "Backup failed",
+      "unexpected": "Unexpected error"
+    }
+  },
+  "backupStatus": {
+    "inProgress": "⏳ Backup is in progress...",
+    "completed": "✅ Backup completed successfully",
+    "failed": "❌ Backup failed",
+    "success": "✅ Backup created",
+    "openFile": "📂 Open file",
+    "report": "📑 Report",
+    "viewReport": "👁️ View report"
+  },
+  "cta": {
+    "title": "Ready to start your journey with Delta?",
+    "subtitle": "Join thousands of developers who trust Delta to manage their projects and backups.",
+    "startFree": "Start for Free",
+    "learnMore": "Learn More",
+    "trial": "14-day free trial",
+    "noCreditCard": "No credit card required",
+    "cancelAnytime": "Cancel anytime"
+  },
+  "features": {
+    "badge": "Key Features",
+    "headline": "Integrated solutions for your needs",
+    "description": "We provide a comprehensive set of powerful tools to manage your projects efficiently and professionally.",
+    "security": {
+      "title": "Global Security",
+      "description": "Advanced data protection with the latest encryption technologies and two-factor authentication support."
+    },
+    "reports": {
+      "title": "Interactive Reports",
+      "description": "A complete dashboard with live charts, customizable reports, and multi-format export."
+    },
+    "performance": {
+      "title": "High Performance",
+      "description": "Fast data processing with ultra-low response time even under heavy loads."
+    },
+    "multilang": {
+      "title": "Multi-language",
+      "description": "A multilingual user interface with full support for Arabic and English."
+    },
+    "github": {
+      "title": "GitHub Integration",
+      "description": "Direct sync with GitHub repositories and instant backup updates."
+    },
+    "scalability": {
+      "title": "Scalability",
+      "description": "Clean, extensible architecture with comprehensive documentation and clear APIs."
+    }
+  },
+  "hero": {
+    "badge": "Latest Release",
+    "headline": "The Backup Platform",
+    "description": "A complete solution for backup management, data analysis, and interactive reporting with top security and performance standards.",
+    "startFree": "Start for Free",
+    "exploreFeatures": "Explore Features",
+    "usersTrust": "Trusted by over 5000 users"
+  },
+  "testimonials": {
+    "badge": "Customer Reviews",
+    "headline": "What our clients say",
+    "description": "Join thousands of professionals who trust Delta to manage their projects",
+    "items": [
+      {
+        "id": 1,
+        "name": "Ahmed Mohamed",
+        "role": "IT Manager",
+        "content": "Since I started using Delta, I’ve saved countless hours of hard work. The integrated tools and ease of use make it the perfect solution for tech teams.",
+        "avatar": "/avatars/ahmed.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Sara Al-Khalid",
+        "role": "Web Developer",
+        "content": "The intuitive dashboard and detailed reports helped me track my projects much better. Highly recommended for all developers.",
+        "avatar": "/avatars/sara.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Khaled Al-Otaibi",
+        "role": "Team Lead",
+        "content": "The best thing about Delta is reliability and security. I feel completely at ease knowing my data is safe and protected.",
+        "avatar": "/avatars/khaled.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Noura Al-Fuhaid",
+        "role": "UI Designer",
+        "content": "Integration with design tools is extremely easy. It saved me a lot of time transferring designs into code.",
+        "avatar": "/avatars/nora.jpg"
+      }
+    ]
+  },
+  "activityPage": {
+    "title": "User Activity",
+    "description": "Here you can review your recent actions and activity logs."
+  },
+  "activityFeed": {
+    "title": "Recent Activity",
+    "loading": "Loading activity...",
+    "empty": "No activity found"
+  },
+  "profilePage": {
+    "title": "User Profile",
+    "loading": "Loading profile...",
+    "noProfile": "No profile found"
+  },
+  "profileForm": {
+    "title": "Edit Profile",
+    "fields": {
+      "fullName": "Full Name",
+      "displayName": "Display Name",
+      "email": "Email",
+      "image": "Profile Image URL"
+    },
+    "save": "Save Changes",
+    "saving": "Saving...",
+    "errors": {
+      "unexpected": "An unexpected error occurred"
+    }
+  },
+  "reportsPage": {
+    "title": "User Reports",
+    "loading": "Loading reports...",
+    "empty": "No reports found"
+  },
+  "reportDetailPage": {
+    "title": "Report Details",
+    "noFile": "No report file specified"
+  },
+  "settingsPage": {
+    "title": "User Settings",
+    "loading": "Loading settings...",
+    "empty": "No settings found",
+    "fields": {
+      "theme": "Theme",
+      "language": "Language",
+      "notifications": "Enable Notifications"
+    },
+    "themes": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "languages": {
+      "en": "English",
+      "ar": "Arabic"
+    }
+  },
+  "userLayout": {
+    "title": "User Area",
+    "links": {
+      "dashboard": "Dashboard",
+      "profile": "Profile",
+      "activity": "Activity",
+      "reports": "Reports",
+      "settings": "Settings"
+    }
+  },
+  "dashboardPage": {
+    "title": "User Dashboard",
+    "description": "Here you can view your profile, stats, recent activity, and reports.",
+    "profile": "Profile",
+    "stats": "Statistics",
+    "activity": "Recent Activity",
+    "reports": "Reports"
+  },
+
+  "supportLayout": {
+    "title": "Support Center",
+    "links": {
+      "dashboard": "Dashboard",
+      "reports": "Reports",
+      "tickets": "Tickets",
+      "stats": "Statistics"
+    }
+  },
+  "supportDashboard": {
+    "title": "Support Dashboard",
+    "description": "Overview of reports, tickets, and support statistics.",
+    "stats": "Statistics",
+    "recentReports": "Recent Reports",
+    "recentTickets": "Recent Tickets"
+  },
+  "supportReports": {
+    "title": "Support Reports",
+    "description": "Review support reports, add comments, and manage attachments.",
+    "detailTitle": "Report Details"
+  },
+  "supportTickets": {
+    "title": "Support Tickets",
+    "detailTitle": "Ticket Details"
+  },
+  "supportStats": {
+    "title": "Support Statistics"
+  },
+  "userStats": {
+    "totalFiles": "Total Files",
+    "totalSize": "Total Size",
+    "execTime": "Execution Time",
+    "totalFolders": "Total Folders"
+  },
+  "reportsList": {
+    "title": "Reports List",
+    "loading": "Loading...",
+    "error": "An error occurred while loading reports",
+    "empty": "No reports available"
+  }
+}

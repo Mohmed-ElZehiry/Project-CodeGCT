@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌍 Theme system variables */
+@layer base {
+  :root {
+    /* 🎨 Light Theme (Apple-like minimalism) */
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 220 60% 45%; /* أزرق أنيق مستوحى من Apple */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 16% 94%;
+    --muted-foreground: 215 16% 40%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 220 60% 45%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* 🌑 Dark Theme (sleek, immersive, Apple-inspired) */
+    --background: 222.2 47.4% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 47.4% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 47.4% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 220 70% 60%; /* أزرق مشبع يلمع في الدارك */
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 20%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 20%;
+    --input: 217.2 32.6% 20%;
+    --ring: 220 70% 60%;
+  }
+}
+
+/* ✨ Apply variables */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+    font-feature-settings: "liga", "kern";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-foreground;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  a {
+    @apply text-primary hover:opacity-80 transition-opacity;
+  }
+
+  button {
+    @apply rounded-lg px-4 py-2 font-medium transition-all duration-300;
+  }
+
+  /* 🌐 Global Apple-like feel */
+  .glass {
+    @apply bg-background/70 backdrop-blur-md border border-border;
+  }
+
+  .card {
+    @apply rounded-xl shadow-sm border bg-card text-card-foreground transition-colors;
+  }
+}
