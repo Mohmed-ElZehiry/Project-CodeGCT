@@ -25,7 +25,7 @@ function isProtectedRoute(pathname: string) {
 
 export async function middleware(request: NextRequest) {
   const intlResponse = intlMiddleware(request);
-  const response = NextResponse.next({ request: { headers: request.headers } });
+  const response = intlResponse ?? NextResponse.next({ request: { headers: request.headers } });
 
   const path = request.nextUrl.pathname;
   const locale = path.split("/")[1] || "en";
@@ -42,11 +42,11 @@ export async function middleware(request: NextRequest) {
     `/${locale}/api/auth`,
   ];
   if (publicPaths.some((prefix) => path.startsWith(prefix))) {
-    return intlResponse ?? response;
+    return response;
   }
 
   if (!isProtectedRoute(path)) {
-    return intlResponse ?? response;
+    return response;
   }
 
   // ✅ استخدم createMiddlewareClient (Edge-compatible)
@@ -115,7 +115,7 @@ export async function middleware(request: NextRequest) {
 
   logger.logInfo("Access granted via middleware", { userId: user.id, role: userRole, path });
 
-  return intlResponse ?? response;
+  return response;
 }
 
 export const config = {
